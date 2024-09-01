@@ -160,6 +160,11 @@ const VideoCarousel = () => {
                   playsInline={true}
                   preload="auto"
                   muted
+                  style={
+                    window.innerWidth < 640
+                      ? { marginTop: "25px" } 
+                      : {}
+                  }
                   className={`${
                     value.id === 2 && "translate-x-44"
                   } pointer-events-none `}
@@ -180,9 +185,9 @@ const VideoCarousel = () => {
                   <source src={value.video} type="video/mp4" />
                 </video>
               </div>
-              <div className="absolute top-12 left-[5%] z-10">
+              <div className="absolute top-12 left-[5%] z-10 -mt-10">
                 {value.textLists.map((value, index) => (
-                  <p key={index} className="md:text-2xl text-xl font-medium">
+                  <p key={index} className="md:text-2xl text-sm font-medium ">
                     {value}
                   </p>
                 ))}
